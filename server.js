@@ -21,20 +21,25 @@ var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELI
 
 var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
-  originBlacklist: originBlacklist,
-  originWhitelist: originWhitelist,
+  
+  originWhitelist: [], // Allow all origins
+  requireHeaders: [], // Do not require any headers.
+  removeHeaders: [], // Do not remove any headers.
+  
+  //original
+  //originBlacklist: originBlacklist,
+  //originWhitelist: originWhitelist,
   //requireHeader: ['origin', 'x-requested-with'],
-  requireHeader: [],
   checkRateLimit: checkRateLimit,
-  removeHeaders: [
-    'cookie',
-    'cookie2',
+  //removeHeaders: [
+  //  'cookie',
+  //  'cookie2',
     // Strip Heroku-specific headers
-    'x-heroku-queue-wait-time',
-    'x-heroku-queue-depth',
-    'x-heroku-dynos-in-use',
-    'x-request-start',
-  ],
+ //   'x-heroku-queue-wait-time',
+ //   'x-heroku-queue-depth',
+ //   'x-heroku-dynos-in-use',
+ //   'x-request-start',
+ // ],
   redirectSameOrigin: true,
   httpProxyOptions: {
     // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
