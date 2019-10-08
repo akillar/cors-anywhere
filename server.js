@@ -22,7 +22,7 @@ var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELI
 var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
   
-  originWhitelist: ['http://streamlow.com'], // Allow all origins
+  originWhitelist: [], // Allow all origins
   requireHeaders: [], // Do not require any headers.
   removeHeaders: [], // Do not remove any headers.
   
