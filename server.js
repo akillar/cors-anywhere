@@ -25,7 +25,7 @@ cors_proxy.createServer({
   originWhitelist: [], // Allow all origins
   requireHeaders: [], // Do not require any headers.
   removeHeaders: [], // Do not remove any headers.
-  setHeaders: {"Access-Control-Allow-Origin: https://streamlow.com"},
+  //setHeaders: {"Access-Control-Allow-Origin: https://streamlow.com"},
   //original
   //originBlacklist: originBlacklist,
   //originWhitelist: originWhitelist,
